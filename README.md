@@ -45,20 +45,20 @@ _If you finished your MVP, what other functionalities would you like to add to y
 ​
 ## Routes
 
-​​
+
 | Name | Method | Endpoint | Description | Body | Redirects |
 | --------------- | ------ | ----------------------------- | ------------------------------------------------ | ------------------------------------- | --------------- |
 
 | Home | GET | / | See the main page | | |
-​​
+
 | Log in form | GET | /login | See the form to log in | | |
-​​
+
 | Log in | POST | /login | Log in the user | {mail, password} | / |
-​​
+
 | Sign Up form | GET | /signup | See the form to sign up | | |
-​​
+
 | Sign Up | POST | /signup | Sign up a user | {mail, password} | /login |
-​​
+
 
 ## Models
 
