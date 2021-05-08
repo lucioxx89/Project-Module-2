@@ -13,8 +13,6 @@ Short description of your app's purpose.
 ## User stories (MVP)
 
 ​
-_Complete with your own functionalities for the MVP (remember, be realistic!):_
-​
 **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
 ​
 **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
@@ -34,15 +32,16 @@ _Complete with your own functionalities for the MVP (remember, be realistic!):_
 
 ​
 _If you finished your MVP, what other functionalities would you like to add to your app? (User stories). Here's an example:_
-
+​
 **Add filter in Homepage** - Add a filter to the Homepage so the user can filter by category and choose dispplay the events base of his/her preferences.
-
+​
 **Map** - To check the exact location of the events and get direction to/from there.
 ​
 **Add Payment Method** - So far events are free, create payment method to certain event which are not free.
-
+​
 **Theme** - As a user I want to be able to choose from a dark or light theme for my app
 
+​
 ## Routes
 
 ​
@@ -50,9 +49,13 @@ _If you finished your MVP, what other functionalities would you like to add to y
 | --------------- | ------ | ----------------------------- | ------------------------------------------------ | ------------------------------------- | --------------- |
 
 | Home | GET | / | See the main page | | |
+​
 | Log in form | GET | /login | See the form to log in | | |
+​
 | Log in | POST | /login | Log in the user | {mail, password} | / |
+​
 | Sign Up form | GET | /signup | See the form to sign up | | |
+​
 | Sign Up | POST | /signup | Sign up a user | {mail, password} | /login |
 ​
 
