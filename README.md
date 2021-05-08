@@ -32,13 +32,13 @@ Short description of your app's purpose.
 
 ​
 _If you finished your MVP, what other functionalities would you like to add to your app? (User stories). Here's an example:_
-​
+
 **Add filter in Homepage** - Add a filter to the Homepage so the user can filter by category and choose dispplay the events base of his/her preferences.
-​
+
 **Map** - To check the exact location of the events and get direction to/from there.
-​
+
 **Add Payment Method** - So far events are free, create payment method to certain event which are not free.
-​
+
 **Theme** - As a user I want to be able to choose from a dark or light theme for my app
 
 ​
