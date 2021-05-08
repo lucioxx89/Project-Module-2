@@ -1,5 +1,7 @@
 # Project-Module-2
+
 # Your project's name
+
 ...
 ​
 
@@ -43,13 +45,17 @@ _If you finished your MVP, what other functionalities would you like to add to y
 **Theme** - As a user I want to be able to choose from a dark or light theme for my app
 
 ​
+
 ## Routes
 
-
 | Name | Method | Endpoint | Description | Body | Redirects |
-| --------------- | ------ | ----------------------------- | ------------------------------------------------ | ------------------------------------- | --------------- |
+| ---- | ------ | -------- | ----------- | ---- | --------- |
 
 | Home | GET | / | See the main page | | |
+
+|Events List | GET | /events | See the events available | | |
+
+| Events Details | GET | /events/:id
 
 | Log in form | GET | /login | See the form to log in | | |
 
@@ -58,7 +64,6 @@ _If you finished your MVP, what other functionalities would you like to add to y
 | Sign Up form | GET | /signup | See the form to sign up | | |
 
 | Sign Up | POST | /signup | Sign up a user | {mail, password} | /login |
-
 
 ## Models
 
@@ -92,8 +97,8 @@ User model
 
 ```js
 {
-    // firstName: String,
-    // lastName: String,
+    firstName: String,
+    lastName: String,
     email: String,
     hashedPassword: String,
     // location: Array,
