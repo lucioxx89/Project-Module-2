@@ -48,22 +48,35 @@ _If you finished your MVP, what other functionalities would you like to add to y
 
 ## Routes
 
-| Name | Method | Endpoint | Description | Body | Redirects |
-| ---- | ------ | -------- | ----------- | ---- | --------- |
-
-| Home | GET | / | See the main page | | |
-
-|Events List | GET | /events | See the events available | | |
-
-| Events Details | GET | /events/:id
-
-| Log in form | GET | /login | See the form to log in | | |
-
-| Log in | POST | /login | Log in the user | {mail, password} | / |
-
-| Sign Up form | GET | /signup | See the form to sign up | | |
-
-| Sign Up | POST | /signup | Sign up a user | {mail, password} | /login |
+| Name          | MTHD | Endpoint        | Description       | Body               | Render        | Redirect |
+| ------------- | ---- | --------------- | ----------------- | ------------------ | ------------- | -------- |
+| Home          | GET  | /               | See main page     |                    | home          |          |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Sign Up form  | GET  | auth/signup     | See signup form   |                    | signup-form   |          |
+| ------------- | ---- | --------------  | ----------------  | ----------------   | ------------  | -------- |
+| Signup        | POST | auth/signup     | Signup user       | req.body{...}      |               | /        |
+| ------------- | ---- | -------------   | ----------------  | ----------------   | ------------  | -------- |
+| Login form    | GET  | /auth/login     | See login form    | ------------------ | login-form    |          |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Login         | POST | /auth/login     | Login user        | req.body{mail,psw} |               | /events  |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Logout        | GET  | /auth/logout    | Logout user       | req.session.destro |               | /login   |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Profile       | GET  | /auth/profile   | User profile page |                    | profile-page  |          |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Event         | GET  | /events         | See all events    | (Event.find )      | events-list   |          |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Event-details | GET  | /events/:id/    | See event details | req.params{id}     | events-detail |          |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Event-create  | GET  | /events/create  | See create form   |                    | create-form   |          |
+| ------------- | ---- | -------------   | ----------------  | ----------------   | ------------  | -------- |
+| Event-create  | POST | /events/create  | Save event to DB  | req.body{...}      |               | /events  |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Event update  | GET  | /events/:id/edi | See update form   | req.params{id}     | update-form   |          |
+| ------------- | ---- | -------------   | ----------------  | ----------------   | ------------  | -------- |
+| Event update  | POST | /events/:id/edi | Save event to DB  | req.body & Id      |               | /events  |
+| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
+| Event delete  | POST | /events/:id/del | Delete event      | req.params{id}     |               | /events  |
 
 ## Models
 
@@ -83,11 +96,16 @@ location: {
     type:String,
     required: true
     }
-price: Number,
+//price: Number,
 
 date: {
-    type: date,
+    type: Date,
     required: true
+}
+
+category: {
+    type: String,
+    enum: ["Sport", "Outdoors", "Learning", "Photography", "Tech", "Writing"]
 }
 
 ```
@@ -97,12 +115,23 @@ User model
 
 ```js
 {
-    firstName: String,
-    lastName: String,
-    email: String,
-    hashedPassword: String,
-    // location: Array,
-    // age: Number //is there a minimum age
+firstName: {
+    type:String,
+    required: true,
+    }
+lastName: {
+    type:String,
+    required: true,
+    }
+    email: {
+        type: String,
+        unique: true,
+    }
+    hashedPassword: {
+        type: String,
+        required: [true, 'password is required'],
+    }
+
 }
 ```
 
