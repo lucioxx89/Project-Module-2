@@ -67,6 +67,28 @@ router.post('/edit/:id', (req, res, next) => {
     });
 });
 
+router.get('/details/:id', (req, res, next) => {
+  const { id } = req.params;
+  Event.findById(id)
+    .then(eventDetails => {
+      res.render('events/event-details', { show: eventDetails });
+    })
+    .catch(error => {
+      console.log('Error while retrieving details: ', error);
+      next(error);
+    });
+  //   res.render('events/event-details');
+});
+
+// router.get('/:id', (req, res, next) => {
+//   Movie.findById(req.params.id)
+//     .then((details) => res.render('movies/details', { show: details }))
+//     .catch(error => {
+//       console.log('Error while retrieving movie details: ', error);
+//       next(error)
+//     });
+// });
+
 router.post('/delete/:id', (req, res, next) => {
   const { id } = req.params;
   Event.findByIdAndDelete(id)
