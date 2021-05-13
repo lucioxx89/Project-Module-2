@@ -37,4 +37,46 @@ router.post('/create', (req, res, next) => {
     });
 });
 
+// update event
+
+router.get('/edit/:id', (req, res, next) => {
+  const { id } = req.params;
+  Event.findById(id)
+    .then(foundedEvent => {
+      console.log('Event Edited');
+      res.render('events/edit-form', foundedEvent);
+    })
+    .catch(error => {
+      console.log('No events to show', error);
+    });
+});
+
+router.post('/edit/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  const { name, image, location, date, price, category, description } = req.body;
+
+  Event.findByIdAndUpdate(id, { name, image, location, date, price, category, description }, { new: true })
+    .then(updateEvent => {
+      console.log('Event Updated');
+      res.redirect('/events');
+    })
+    .catch(error => {
+      console.log('No events to show', error);
+      res.render('events/edit-form');
+    });
+});
+
+router.post('/delete/:id', (req, res, next) => {
+  const { id } = req.params;
+  Event.findByIdAndDelete(id)
+    .then(deleteEvent => {
+      console.log('Event Deleted');
+      res.redirect('/events');
+    })
+    .catch(error => {
+      console.log('No event deleted');
+    });
+});
+
 module.exports = router;
