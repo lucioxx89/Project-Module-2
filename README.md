@@ -48,35 +48,35 @@ _If you finished your MVP, what other functionalities would you like to add to y
 
 ## Routes
 
-| Name          | MTHD | Endpoint        | Description       | Body               | Render        | Redirect |
-| ------------- | ---- | --------------- | ----------------- | ------------------ | ------------- | -------- |
-| Home          | GET  | /               | See main page     |                    | home          |          |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Sign Up form  | GET  | auth/signup     | See signup form   |                    | signup-form   |          |
-| ------------- | ---- | --------------  | ----------------  | ----------------   | ------------  | -------- |
-| Signup        | POST | auth/signup     | Signup user       | req.body{...}      |               | /        |
-| ------------- | ---- | -------------   | ----------------  | ----------------   | ------------  | -------- |
-| Login form    | GET  | /auth/login     | See login form    | ------------------ | login-form    |          |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Login         | POST | /auth/login     | Login user        | req.body{mail,psw} |               | /events  |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Logout        | GET  | /auth/logout    | Logout user       | req.session.destro |               | /login   |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Profile       | GET  | /auth/profile   | User profile page |                    | profile-page  |          |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Event         | GET  | /events         | See all events    | (Event.find )      | events-list   |          |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Event-details | GET  | /events/:id/    | See event details | req.params{id}     | events-detail |          |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Event-create  | GET  | /events/create  | See create form   |                    | create-form   |          |
-| ------------- | ---- | -------------   | ----------------  | ----------------   | ------------  | -------- |
-| Event-create  | POST | /events/create  | Save event to DB  | req.body{...}      |               | /events  |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Event update  | GET  | /events/:id/edi | See update form   | req.params{id}     | update-form   |          |
-| ------------- | ---- | -------------   | ----------------  | ----------------   | ------------  | -------- |
-| Event update  | POST | /events/:id/edi | Save event to DB  | req.body & Id      |               | /events  |
-| ------------- | ---- | -------------   | ----------------  | -----------------  | ------------  | -------- |
-| Event delete  | POST | /events/:id/del | Delete event      | req.params{id}     |               | /events  |
+| Name          | MTHD | Endpoint              | Description       | Body                                                 | Render        | Redirect |
+| ------------- | ---- | --------------------- | ----------------- | ---------------------------------------------------- | ------------- | -------- |
+| Home          | GET  | /                     | See main page     |                                                      | home          |          |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Sign Up form  | GET  | auth/signup           | See signup form   |                                                      | signup-form   |          |
+| ------------- | ---- | --------------        | ----------------  | ----------------                                     | ------------  | -------- |
+| Signup        | POST | auth/signup           | Signup user       | req.body{firstName, lastName, email, hashedPassword} |               | /        |
+| ------------- | ---- | -------------         | ----------------  | ----------------                                     | ------------  | -------- |
+| Login form    | GET  | /auth/login           | See login form    | ------------------                                   | login-form    |          |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Login         | POST | /auth/login           | Login user        | req.body{mail,psw}                                   |               | /events  |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Logout        | GET  | /auth/logout          | Logout user       | req.session.destro                                   |               | /login   |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Profile       | GET  | /users/:userId        | User profile page |                                                      | profile-page  |          |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Event         | GET  | /events               | See all events    | (Event.find ) currentUser                            | events-list   |          |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Event-details | GET  | /events/:eventId      | See event details | req.params{id}                                       | events-detail |          |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Event-create  | GET  | /events/create        | See create form   |                                                      | create-form   |          |
+| ------------- | ---- | -------------         | ----------------  | ----------------                                     | ------------  | -------- |
+| Event-create  | POST | /events/create        | Save event to DB  | req.body{...}                                        |               | /events  |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Event update  | GET  | /events/edit/:eventId | See update form   | req.params{id}                                       | update-form   |          |
+| ------------- | ---- | -------------         | ----------------  | ----------------                                     | ------------  | -------- |
+| Event update  | POST | /events/:id/edi       | Save event to DB  | req.body & req.params(Id)                            |               | /events  |
+| ------------- | ---- | -------------         | ----------------  | -----------------                                    | ------------  | -------- |
+| Event delete  | POST | /events/:id/del       | Delete event      | req.params{id}                                       |               | /events  |
 
 ## Models
 
@@ -112,7 +112,11 @@ description: {
     type: String,
     required: true
 }
-
+creator: {
+    type: ObjectId(User),
+    required: true
+}
+}
 ```
 
 User model
@@ -136,7 +140,9 @@ lastName: {
         type: String,
         required: [true, 'password is required'],
     }
-
+attendedEvents: {
+    type: [ObjectIds(Event)]
+   }
 }
 ```
 

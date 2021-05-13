@@ -1,3 +1,19 @@
 <h1>This is the event list</h1>
 
-<a href="#">Add new event</a>
+<a href='/events/create'>Add new event</a>
+
+<div>
+  {{#each event}}
+    <div>
+      <h3>{{this.name}} </h3>
+      <p>: {{this.image}}</p>
+      <p>Location: {{this.location}}</p>
+      <p>Date: {{this.date}} </p>
+      <p>Price: {{this.price}} $</p>
+      <p>Category: {{this.category}} </p>
+      <p>Description: {{this.description}} </p>
+
+    </div>
+  {{/each}}
+
+</div>
