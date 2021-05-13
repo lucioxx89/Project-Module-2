@@ -4,7 +4,10 @@
   {{!-- {{show}} --}}
   <div>
     <h3>{{show.name}} </h3>
-    <p>: {{show.image}}</p>
+    {{#if show.category.music}}
+      <img src='images/music.png' />
+    {{else}}{{/if}}
+
     <p>Location: {{show.location}}</p>
     <p>Date: {{show.date}} </p>
     <p>Price: {{show.price}} $</p>

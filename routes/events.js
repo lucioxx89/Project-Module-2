@@ -37,13 +37,13 @@ router.post('/create', (req, res, next) => {
     });
 });
 
-// update event
+// Edit event
 
 router.get('/edit/:id', (req, res, next) => {
   const { id } = req.params;
   Event.findById(id)
     .then(foundedEvent => {
-      console.log('Event Edited');
+      console.log('Event Edited:', foundedEvent);
       res.render('events/edit-form', foundedEvent);
     })
     .catch(error => {
@@ -67,6 +67,7 @@ router.post('/edit/:id', (req, res, next) => {
     });
 });
 
+// To see Event details
 router.get('/details/:id', (req, res, next) => {
   const { id } = req.params;
   Event.findById(id)
@@ -77,18 +78,9 @@ router.get('/details/:id', (req, res, next) => {
       console.log('Error while retrieving details: ', error);
       next(error);
     });
-  //   res.render('events/event-details');
 });
 
-// router.get('/:id', (req, res, next) => {
-//   Movie.findById(req.params.id)
-//     .then((details) => res.render('movies/details', { show: details }))
-//     .catch(error => {
-//       console.log('Error while retrieving movie details: ', error);
-//       next(error)
-//     });
-// });
-
+// Delete event
 router.post('/delete/:id', (req, res, next) => {
   const { id } = req.params;
   Event.findByIdAndDelete(id)

@@ -25,8 +25,8 @@
     </div>
     <div>
         <label for="category">Category</label>
-        <select name="category" id="category" value="{{category}}">
-            <option value=" ">--</option>
+        <select name="category" id="category">
+            <option value="{{category}}">{{category}}</option>
             <option value="Sport">Sport</option>
             <option value="Music">Music</option>
             <option value="Cinema">Cinema</option>
@@ -37,7 +37,7 @@
 
     <div>
         <label for="description">Description</label>
-        <textarea type="text" rows="4" cols="40" id="description" name="description" value="{{description}}"></textarea>
+        <textarea type="text" rows="4" cols="40" id="description" name="description" value="{{description}}" placeholder="{{description}}"></textarea>
     </div>
         <button type="submit"> Submit </button>
 
