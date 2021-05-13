@@ -4,9 +4,25 @@
   {{!-- {{show}} --}}
   <div>
     <h3>{{show.name}} </h3>
-    {{#if show.category.music}}
-      <img src='images/music.png' />
-    {{else}}{{/if}}
+
+    {{!-- {{Dynamic images}} --}}
+    {{#ifvalue show.category value="Music"}}
+     {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img class="event-img" src="images/music.png"//>}} --}}
+    <p>Music image 📻</p>
+    {{/ifvalue}}
+    {{#ifvalue show.category value="Sport"}}
+    <p>Sport image 🏀</p>
+    {{/ifvalue}}
+    {{#ifvalue show.category value="Cinema"}}
+    <p>Cinema image 🎼</p>
+    {{/ifvalue}}
+    {{#ifvalue show.category value="Outdoors"}}
+    <p>Outdoors image 🌼</p>
+    {{/ifvalue}}
+    {{#ifvalue show.category value="Learning"}}
+    <p>Learning image 📖</p>
+    {{/ifvalue}}
+    {{!-- {{End of dynamic images}} --}}
 
     <p>Location: {{show.location}}</p>
     <p>Date: {{show.date}} </p>

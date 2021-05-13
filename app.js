@@ -4,10 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-
-const indexRouter = require('./routes/index');
-const eventsRouter = require('./routes/events');
-const usersRouter = require('./routes/users');
+const hbs = require("hbs");
 
 // require database configuration
 require('./configs/db.config');
@@ -17,6 +14,14 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
+hbs.registerHelper('ifvalue', function (conditional, options) {
+  if (options.hash.value === conditional) {
+    return options.fn(this)
+  } else {
+    return options.inverse(this);
+  }
+});
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -24,6 +29,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Route management
+const indexRouter = require('./routes/index');
+const eventsRouter = require('./routes/events');
+const usersRouter = require('./routes/users');
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
