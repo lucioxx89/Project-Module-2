@@ -18,12 +18,12 @@ const userSchema = new Schema(
     },
     hashedPassword: {
       type: String,
-      required: [true, 'password is required'],
+      required: [true, 'Password is required'],
     },
 
-    attendedEvents: {
-      //type: [ObjectIds(Event)]
-    },
+    // attendedEvents: {
+    //   //type: [ObjectIds(Event)]
+    // },
   },
 
   { timestamps: true },

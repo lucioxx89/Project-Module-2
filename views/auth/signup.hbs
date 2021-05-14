@@ -1,10 +1,17 @@
-{{! <h1>Signup</h1>
+<h1>Signup</h1>
 
-<form action="/signup" method="POST">
-  <label for="Name">Name</label>
-  <input type="text" id="name" name="name" >
+<form action='/auth/signup' method='POST'>
 
-<label for="password">Password</label>
-  <input type="password" id="password" name="password" >
-  <button type="submit">Login</button>
-</form> }}
+  <label for='firstName'>First Name</label>
+  <input type='text' id='firstName' name='firstName' placeholder='Your first name' />
+
+  <label for='lastName'>Last Name Name</label>
+  <input type='text' id='lastName' name='lastName' placeholder='Your last name' />
+
+  <label for='email'>Email</label>
+  <input type='email' id='email' name='email' placeholder='Your Email' />
+
+  <label for='password'>Password</label>
+  <input type='password' id='password' name='password' placeholder='********' />
+  <button type='submit'>Signup</button>
+</form>

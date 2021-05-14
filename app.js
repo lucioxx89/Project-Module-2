@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const hbs = require("hbs");
+const hbs = require('hbs');
 
 // require database configuration
 require('./configs/db.config');
@@ -17,7 +17,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 hbs.registerHelper('ifvalue', function (conditional, options) {
   if (options.hash.value === conditional) {
-    return options.fn(this)
+    return options.fn(this);
   } else {
     return options.inverse(this);
   }
@@ -34,9 +34,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

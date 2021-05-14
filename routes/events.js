@@ -28,7 +28,7 @@ router.post('/create', (req, res, next) => {
   const { name, image, location, date, price, category, description } = req.body;
   // Me he creado una función (carpeta Helpers/dates) que me deja la date como la quiero para poderla mostrar en el edit
   // A la base de datos le mando la date arreglada:
-    Event.create({ name, image, location, date: fixDate(date), price, category, description }) // same as above, this one has been destructured
+  Event.create({ name, image, location, date: fixDate(date), price, category, description }) // same as above, this one has been destructured
     .then(newEvent => {
       console.log('New Event created', newEvent);
       res.redirect('/events');
@@ -37,9 +37,8 @@ router.post('/create', (req, res, next) => {
       console.log('No event created', error);
       //res.render('events/create-form');
       next(error);
-  });
-  }
-);
+    });
+});
 
 // Edit event
 
@@ -75,8 +74,8 @@ router.post('/edit/:id', (req, res, next) => {
 router.get('/details/:id', (req, res, next) => {
   const { id } = req.params;
   Event.findById(id)
-    .then(eventDetails => {
-      res.render('events/event-details', { show: eventDetails });
+    .then(eventById => {
+      res.render('events/event-details', { showEventDetails: eventById });
     })
     .catch(error => {
       console.log('Error while retrieving details: ', error);

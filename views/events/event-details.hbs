@@ -1,40 +1,39 @@
-<h1>details</h1>
+<h1>Event Details</h1>
 
 <div>
-  {{!-- {{show}} --}}
+
   <div>
-    <h3>{{show.name}} </h3>
+    <h3>{{showEventDetails.name}} </h3>
 
     {{!-- {{Dynamic images}} --}}
-    {{#ifvalue show.category value="Music"}}
-     {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img class="event-img" src="images/music.png"//>}} --}}
-    <p>Music image 📻</p>
+    {{#ifvalue showEventDetails.category value='Music'}}
+      {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img class="event-img" src="images/music.png"//>}} --}}
+      <p>Music image 📻</p>
     {{/ifvalue}}
-    {{#ifvalue show.category value="Sport"}}
-    <p>Sport image 🏀</p>
+    {{#ifvalue showEventDetails.category value='Sport'}}
+      <p>Sport image 🏀</p>
     {{/ifvalue}}
-    {{#ifvalue show.category value="Cinema"}}
-    <p>Cinema image 🎼</p>
+    {{#ifvalue showEventDetails.category value='Cinema'}}
+      <p>Cinema image 🎼</p>
     {{/ifvalue}}
-    {{#ifvalue show.category value="Outdoors"}}
-    <p>Outdoors image 🌼</p>
+    {{#ifvalue showEventDetails.category value='Outdoors'}}
+      <p>Outdoors image 🌼</p>
     {{/ifvalue}}
-    {{#ifvalue show.category value="Learning"}}
-    <p>Learning image 📖</p>
+    {{#ifvalue showEventDetails.category value='Learning'}}
+      <p>Learning image 📖</p>
     {{/ifvalue}}
     {{!-- {{End of dynamic images}} --}}
 
-    <p>Location: {{show.location}}</p>
-    <p>Date: {{show.date}} </p>
-    <p>Price: {{show.price}} $</p>
-    <p>Category: {{show.category}} </p>
-    <p>Description: {{show.description}} </p>
+    <p>Location: {{showEventDetails.location}}</p>
+    <p>Date: {{showEventDetails.date}} </p>
+    <p>Price: {{showEventDetails.price}} $</p>
+    <p>Category: {{showEventDetails.category}} </p>
+    <p>Description: {{showEventDetails.description}} </p>
     {{!-- <a href='/events/edit/{{id}}'>Edit Events</a>
       <form action='/events/delete/{{id}}' method='POST'>
         <button type='submit'> Delete Event </button>
       </form> --}}
 
   </div>
-  {{!-- {{/each}} --}}
 
 </div>
