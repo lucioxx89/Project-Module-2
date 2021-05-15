@@ -1,19 +1,22 @@
-// require session
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
-// let's export it and have it receive a parameter
+const mongoose = require('mongoose');
+
 module.exports = app => {
-  // use session
   app.use(
     session({
       secret: process.env.SESS_SECRET,
       resave: true,
       saveUninitialized: false,
       cookie: {
-        sameSite: 'none',
         httpOnly: true,
-        maxAge: 60000, // 60 * 1000 ms === 1 min
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
       },
-    }),
+      store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 60 * 60 * 24
+      })
+    })
   );
 };
