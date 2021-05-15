@@ -5,11 +5,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const hbs = require('hbs');
+// const dotenv = require(‘.env’).config()
 
+// const session = require('express-session');
 // require database configuration
 require('./configs/db.config');
 
 const app = express();
+require('./configs/session.config')(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
