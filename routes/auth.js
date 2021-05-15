@@ -34,6 +34,7 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
 
   if (email === '' || password === '') {
@@ -48,7 +49,7 @@ router.post('/login', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
         return;
       } else if (bcryptjs.compareSync(password, user.hashedPassword)) {
-        res.render('users/user-profile', {user} );
+        res.render('users/user-profile', { user });
       } else {
         res.render('auth/login', { errorMessage: 'Incorrect password.' });
       }

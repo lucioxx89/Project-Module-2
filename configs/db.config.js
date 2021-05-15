@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
+const MONGODB_URI = process.env.MONGO_URI;
 
 mongoose
-  .connect('mongodb://localhost:27017/events-app', {
-    useCreateIndex: true,
+  .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true
+    useCreateIndex: true
   })
-  .then(() => {
-    console.log('Connected to DB 🚀');
-  })
+  .then(() => console.log(`Successfully connected to the database ${MONGODB_URI}`))
   .catch(error => {
-    console.log('error ', error);
+    console.error(`An error ocurred trying to connect to the database ${MONGODB_URI}: `, error);
+    process.exit(1);
   });
