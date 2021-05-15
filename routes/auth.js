@@ -46,10 +46,9 @@ router.post('/login', (req, res, next) => {
     .then(user => {
       if (!user) {
         res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
-
         return;
-      } else if (bcryptjs.compareSync(password, user.passworHash)) {
-        res.render('users/user-profile', { user });
+      } else if (bcryptjs.compareSync(password, user.hashedPassword)) {
+        res.render('users/user-profile', {user} );
       } else {
         res.render('auth/login', { errorMessage: 'Incorrect password.' });
       }
