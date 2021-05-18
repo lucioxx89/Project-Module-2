@@ -6,6 +6,14 @@ const router = express.Router();
 
 const User = require('../models/user.model');
 
+const checkIfUserIsLoggedIn = require('../middlewares/auth');
+
+//Profile route
+router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
+  //console.log('user', req.session.currentUser);
+  res.render('users/user-profile', { user: req.session.currentUser });
+});
+
 //Sign up route
 
 router.get('/signup', (req, res, next) => {
@@ -27,7 +35,7 @@ router.post('/signup', (req, res, next) => {
     .catch(error => next(error));
 });
 
-// login route
+// Login route
 
 router.get('/login', (req, res, next) => {
   res.render('auth/login');
@@ -49,7 +57,10 @@ router.post('/login', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
         return;
       } else if (bcryptjs.compareSync(password, user.hashedPassword)) {
-        res.render('users/user-profile', { user });
+        req.session.currentUser = user;
+        res.redirect('/auth/profile');
+
+        //  res.render('users/user-profile', { user });
       } else {
         res.render('auth/login', { errorMessage: 'Incorrect password.' });
       }
@@ -57,4 +68,16 @@ router.post('/login', (req, res, next) => {
     .catch(error => next(error));
 });
 
+//Logout route
+router.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 module.exports = router;
+
+// // Profile route
+// router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
+//   console.log('user', req.session.currentUser);
+//   res.render('user/user-profile', { user: req.session.currentUser });
+// });
