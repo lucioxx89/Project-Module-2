@@ -30,7 +30,7 @@ router.post('/signup', (req, res, next) => {
     })
     .then(passwordHash => User.create({ firstName, lastName, email, hashedPassword: passwordHash }))
     .then(() => {
-      res.redirect('/events');
+      res.redirect('/login');
     })
     .catch(error => next(error));
 });
