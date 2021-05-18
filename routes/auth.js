@@ -9,13 +9,12 @@ const User = require('../models/user.model');
 const checkIfUserIsLoggedIn = require('../middlewares/auth');
 
 //Profile route
-router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
-  //console.log('user', req.session.currentUser);
-  res.render('users/user-profile', { user: req.session.currentUser });
-});
+// router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
+//   //console.log('user', req.session.currentUser);
+//   res.render('users/user-profile', { user: req.session.currentUser });
+// });
 
 //Sign up route
-
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup');
 });
@@ -36,7 +35,6 @@ router.post('/signup', (req, res, next) => {
 });
 
 // Login route
-
 router.get('/login', (req, res, next) => {
   res.render('auth/login');
 });
