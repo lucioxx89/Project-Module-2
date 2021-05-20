@@ -21,20 +21,37 @@ router.get('/profile/edit', (req, res, next) => {
 });
 
 router.post('/profile/edit', (req, res, next) => {
-  //const { id } = req.session.currentUser.id;
-  const { firstName, lastName, email, hashedPassword } = req.body;
-
-  User.findOneAndUpdate({ firstName, lastName, email, hashedPassword }, { new: true })
-    .then(updateEvent => {
-      console.log('User Updated');
+  const id = req.session.currentUser._id;
+  const { firstName, lastName, email } = req.body;
+  console.log(id, req.body);
+  User.findByIdAndUpdate(id, { firstName, lastName, email }, { new: true })
+    .then(updatedUser => {
+      req.session.currentUser = updatedUser;
+    })
+    .then(() => {
       res.redirect('/users/profile');
     })
     .catch(error => {
       console.log('Could not update user', error);
-      res.render('errors');
+      res.render('error');
     });
   //res.redirect('/users/profile');
 });
+// router.post('/profile/edit', (req, res, next) => {
+//   const { id } = req.session.currentUser._id;
+//   const { firstName, lastName, email, hashedPassword } = req.body;
+
+//   User.findOneAndUpdate(id, { firstName, lastName, email, hashedPassword }, { new: true })
+//     .then(updateEvent => {
+//       console.log('User Updated');
+//       res.redirect('/users/profile');
+//     })
+//     .catch(error => {
+//       console.log('Could not update user', error);
+//       res.render('errors');
+//     });
+//   //res.redirect('/users/profile');
+// });
 // Get /profile/edit
 // Cojo datos del user
 // Se los paso al formulario de hbs y el user ve el form
