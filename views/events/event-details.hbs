@@ -1,26 +1,28 @@
-<h1>Event Details</h1>
+{{! <h1>Event Details</h1> }}
+<h1> {{showEventDetails.name}}</h1>
 
 <div>
 
   <div>
-    <h3>{{showEventDetails.name}} </h3>
+    {{!-- <h3>{{showEventDetails.name}} </h3> --}}
 
     {{!-- {{Dynamic images}} --}}
     {{#ifvalue showEventDetails.category value='Music'}}
       {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img class="event-img" src="images/music.png"//>}} --}}
-      <p>Music image 📻</p>
+      {{! <p>Music image 📻</p> }}
+      <p><img class='event-img' src='/images/Music.jpeg' /></p>
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Sport'}}
-      <p>Sport image 🏀</p>
+      <p><img class='event-img' src='/images/Sport.jpg' /></p>
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Cinema'}}
-      <p>Cinema image 🎼</p>
+      <p><img class='event-img' src='/images/Cinema.jpeg' /></p>
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Outdoors'}}
-      <p>Outdoors image 🌼</p>
+      <p><img class='event-img' src='/images/Outdoors.jpeg' /></p>
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Learning'}}
-      <p>Learning image 📖</p>
+      <p><img class='event-img' src='/images/Learning.jpeg' /></p>
     {{/ifvalue}}
     {{!-- {{End of dynamic images}} --}}
 

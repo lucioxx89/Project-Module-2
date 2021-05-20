@@ -8,20 +8,39 @@ router.get('/users', (req, res, next) => {
   res.send('respond with a resource');
 });
 
- // Profile route
+// Profile route
 router.get('/profile', checkIfUserIsLoggedIn, (req, res, next) => {
-  // console.log('user', req.session.currentUser);
+  //console.log('user', req.session.currentUser);
   res.render('users/user-profile', { user: req.session.currentUser });
 });
 
+//Edit profile form
+router.get('/profile/edit', (req, res, next) => {
+  console.log(req.session.currentUser);
+  res.render('users/edit-profile-form', { user: req.session.currentUser });
+});
+
+router.post('/profile/edit', (req, res, next) => {
+  //const { id } = req.session.currentUser.id;
+  const { firstName, lastName, email, hashedPassword } = req.body;
+
+  User.findOneAndUpdate({ firstName, lastName, email, hashedPassword }, { new: true })
+    .then(updateEvent => {
+      console.log('User Updated');
+      res.redirect('/users/profile');
+    })
+    .catch(error => {
+      console.log('Could not update user', error);
+      res.render('errors');
+    });
+  //res.redirect('/users/profile');
+});
 // Get /profile/edit
 // Cojo datos del user
-// Se los paso al formulario de hbs y el user ve el form 
+// Se los paso al formulario de hbs y el user ve el form
 
 // Post /profile/edit
 
 // Delete user
-
-
 
 module.exports = router;

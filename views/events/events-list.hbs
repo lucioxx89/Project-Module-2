@@ -1,4 +1,4 @@
-<h1>This is the event list</h1>
+<h1>Available Events</h1>
 
 <a href='/events/create'>Add new event</a>
 
@@ -6,14 +6,17 @@
   {{#each event}}
     <div>
       <h3>{{this.name}} </h3>
-      <p>: {{this.image}}</p>
+      {{!-- <p>: {{this.image}}</p> --}}
       <p>Location: {{this.location}}</p>
-      {{!-- <p>Date: {{this.date}} </p>
-      <p>Price: {{this.price}} $</p>
-      <p>Category: {{this.category}} </p>
-      <p>Description: {{this.description}} </p> --}}
-      <a href='/events/edit/{{id}}'>Edit Events</a>
+      <p>Date: {{this.date}} </p>
+      <p>Price: {{this.price}} €</p>
+      {{!-- <p>Category: {{this.category}} </p> --}}
+      {{!-- <p>Description: {{this.description}} </p> --}}
+
       <a href='/events/details/{{id}}'>Event Details</a>
+      <br />
+      <a href='/events/edit/{{id}}'>Edit Events</a>
+      <br />
       <form action='/events/delete/{{id}}' method='POST'>
         <button type='submit'> Delete Event </button>
       </form>

@@ -9,6 +9,6 @@
   <input type='password' id='password' name='password' />
   <button type='submit'>Login</button>
   {{#if errorMessage}}
-    <p class='error'>{{this}}</p>
+    <p class='error'>{{this.errorMessage}}</p>
   {{/if}}
 </form>
