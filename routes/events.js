@@ -96,4 +96,17 @@ router.post('/delete/:id', (req, res, next) => {
     });
 });
 
+//partecipate my event
+// router.get('/details/:id/my-events', (req, res, next) => {
+//   const { id } = req.params;
+//   Event.findById(id)
+//     .then(joinEvent => {
+//       res.render('events/my-event', { myEvent: joinEvent });
+//     })
+//     .catch(error => {
+//       console.log('Error while retrieving details: ', error);
+//       next(error);
+//     });
+// });
+
 module.exports = router;

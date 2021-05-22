@@ -1,12 +1,24 @@
+<div>
+  {{! <a href='/'>Home</a> }}
+  <a href='#'>My Events</a>
+  <a href='/events'>Events list</a>
+  <a href='/users/profile'>Profile</a>
+  {{! <form action='/auth/logout' method='POST'>
+    <button>Logout</button>
+  </form> }}
+</div>
 <h1>Profile</h1>
 
 {{#if user}}
   <h2>Welcome, {{user.firstName}}!</h2>
   <p>This is your profile page</p>
-  <button>
+  {{! <button>
     <a href='/auth/profile'>Reload the page</a>
-  </button>
-  <a href='/users/profile/edit'>Edit Profile</a>
+  </button> }}
+  <button class='primary-button'><a href='/users/profile/edit'>Edit Profile</a></button>
+  <form action='/auth/logout' method='POST'>
+    <button class='secondary-button'>Logout</button>
+  </form>
 {{else}}
   <p>Still no logged in user, sorry!</p>
 {{/if}}
