@@ -10,7 +10,7 @@
 
 <h1>Events</h1>
 
-<button class='secondary-button'><a href='/events/create'>Add new event</a></button>
+<button class='primary-button'><a href='/events/create'>Add new event</a></button>
 
 <div>
   {{#each event}}
@@ -28,7 +28,7 @@
       <button class='third-button'><a href='/events/edit/{{id}}'>Edit Events</a></button>
       <br />
       <form action='/events/delete/{{id}}' method='POST'>
-        <button type='submit'> Delete Event </button>
+        <button class='third-button' type='submit'> Delete Event </button>
       </form>
 
     </div>

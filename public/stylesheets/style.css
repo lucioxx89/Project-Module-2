@@ -73,6 +73,7 @@ a {
   text-decoration: none;
   color: #d4d1cc;
 }
+
 /*
 a {
   
@@ -109,7 +110,7 @@ form button {
   background: orange;
   border: 1px solid #fecc2b;
   border-radius: 4px;
-  color: #fff;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
