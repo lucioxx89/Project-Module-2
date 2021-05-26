@@ -1,5 +1,7 @@
 {{! <h1>Event Details</h1> }}
-<a href='/events'> Back to Event List </a>
+<a href='/events'><img src='/images/backArrow.png' /></a>
+{{! <a href='/events'> Back to Event List </a> }}
+
 <h1> {{showEventDetails.name}}</h1>
 
 <div>
@@ -32,11 +34,10 @@
     <p>Price: {{showEventDetails.price}} $</p>
     <p>Category: {{showEventDetails.category}} </p>
     <p>Description: {{showEventDetails.description}} </p>
-    {{!-- <a href='/events/edit/{{id}}'>Edit Events</a>
-      <form action='/events/delete/{{id}}' method='POST'>
-        <button type='submit'> Delete Event </button>
-      </form> --}}
-    <a href='#'>Join Event</a>
+
+    <form action='/events/join/{{showEventDetails._id}}' method='POST'>
+      <button type='submit'> Join event </button>
+    </form>
 
   </div>
 

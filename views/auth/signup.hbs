@@ -1,3 +1,5 @@
+<a href='/'><img src='/images/backArrow.png' /></a>
+{{! <a href='/'> Back </a> }}
 <h1>Signup</h1>
 
 <form action='/auth/signup' method='POST'>
@@ -14,4 +16,7 @@
   <label for='password'>Password</label>
   <input type='password' id='password' name='password' placeholder='********' />
   <button type='submit'>Signup</button>
+  {{#if errorMessage}}
+    <p class='error'>{{this.errorMessage}}</p>
+  {{/if}}
 </form>

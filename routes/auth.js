@@ -21,6 +21,12 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
+  if (email === '' || password === '' || firstName === '' || lastName === '') {
+    res.render('auth/signup', {
+      errorMessage: 'Please enter all the required field to continue.',
+    });
+    return;
+  }
   bcryptjs
     .genSalt(saltRounds)
     .then(salt => {

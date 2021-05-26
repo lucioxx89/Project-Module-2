@@ -16,15 +16,15 @@ const userSchema = new Schema(
       type: String,
       unique: true,
     },
-    
+
     hashedPassword: {
       type: String,
       required: [true, 'Password is required'],
     },
 
-    // attendedEvents: {
-    //   //type: [ObjectIds(Event)]
-    // },
+    myEvents: {
+      type: [{ type: Schema.Types.ObjectId, ref: 'Event' }],
+    },
   },
 
   { timestamps: true },

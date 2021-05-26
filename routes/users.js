@@ -37,27 +37,18 @@ router.post('/profile/edit', (req, res, next) => {
     });
   //res.redirect('/users/profile');
 });
-// router.post('/profile/edit', (req, res, next) => {
-//   const { id } = req.session.currentUser._id;
-//   const { firstName, lastName, email, hashedPassword } = req.body;
 
-//   User.findOneAndUpdate(id, { firstName, lastName, email, hashedPassword }, { new: true })
-//     .then(updateEvent => {
-//       console.log('User Updated');
-//       res.redirect('/users/profile');
-//     })
-//     .catch(error => {
-//       console.log('Could not update user', error);
-//       res.render('errors');
-//     });
-//   //res.redirect('/users/profile');
-// });
-// Get /profile/edit
-// Cojo datos del user
-// Se los paso al formulario de hbs y el user ve el form
-
-// Post /profile/edit
-
+// My events
+router.get('/myevents', (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  User.findById(userId)
+    .populate('myEvents')
+    .then(dbUser => {
+      console.log(dbUser);
+      res.render('events/events-fav', { event: dbUser });
+    })
+    .catch(error => next(error));
+});
 // Delete user
 
 module.exports = router;
