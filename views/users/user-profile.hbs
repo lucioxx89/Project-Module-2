@@ -1,6 +1,6 @@
 <div>
   {{! <a href='/'>Home</a> }}
-  <a href='#'>My Events</a>
+  <a href='/users/myevents'>My Events</a>
   <a href='/events'>Events list</a>
   <a href='/users/profile'>Profile</a>
   {{! <form action='/auth/logout' method='POST'>
@@ -22,3 +22,5 @@
 {{else}}
   <p>Still no logged in user, sorry!</p>
 {{/if}}
+
+{{> appbarBottom}}

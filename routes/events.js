@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/event.model');
+const User = require('../models/user.model');
 // Call the function I created in helpers/dates
 const fixDate = require('../helper/dates');
 
@@ -96,17 +97,17 @@ router.post('/delete/:id', (req, res, next) => {
     });
 });
 
-//partecipate my event
-// router.get('/details/:id/my-events', (req, res, next) => {
-//   const { id } = req.params;
-//   Event.findById(id)
-//     .then(joinEvent => {
-//       res.render('events/my-event', { myEvent: joinEvent });
-//     })
-//     .catch(error => {
-//       console.log('Error while retrieving details: ', error);
-//       next(error);
-//     });
-// });
+// Join event
+router.post('/join/:id', (req, res, next) => {
+  const eventId = req.params.id;
+  const userId = req.session.currentUser._id;
+  User.findByIdAndUpdate(userId, { $push: { myEvents: eventId } })
+    .then(() => {
+      res.redirect('/users/myevents');
+    })
+    .catch(error => {
+      console.log('Problem joining');
+    });
+});
 
 module.exports = router;
