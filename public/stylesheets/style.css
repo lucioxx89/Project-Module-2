@@ -1,3 +1,6 @@
+
+
+
 body {
   font: 200 16px/1.5 “Helvetica Neue”,
   Helvetica,
@@ -9,12 +12,12 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  /* font: 14px ‘Lucida Grande’, Helvetica, Arial, sans-serif; */
+  font: 14px ‘Lucida Grande’, Helvetica, Arial, sans-serif;
 }
-a {
+/* a {
   color:#d4d1cc;
   border: 1px, solid, white;
-}
+} */
 .index-container {
     display: flex;
     flex-direction: column;
@@ -51,6 +54,7 @@ a {
 .secondary-button {
     background: none;
     border: 1px solid #D4D1CC;
+    color: #D4D1CC;
     border-radius: 4px;
     cursor: pointer;
     display: inline-block;
@@ -84,13 +88,7 @@ a {
     text-decoration: none;
     color: #D4D1CC;
 }
-/*
-a {
-  color: #00B7FF;
-  text-decoration: none;
-  font-size: 1.5em;
-}
-*/
+
 form {
   /* margin: 30px auto; */
   display: flex;
@@ -188,7 +186,7 @@ ul li {
   stroke: #D4D1CC;
 }
 a:focus #home {
-  stroke: #FFA500;
+  stroke: #FFEB3B;
 }
 
 /* search menu icon */
@@ -196,15 +194,16 @@ a:focus #home {
   stroke: #D4D1CC;
 }
 a:focus #search-path {
-  stroke: orange;
+  stroke: #FFEB3B;
 }
 
 /* favs menu icon */
-#favs {
-  stroke: #D4D1CC;
+#coupon {
+  fill: #D4D1CC;
+  width: 30px;
 }
-a:focus #favs {
-  stroke: orange;
+a:focus #coupon {
+  fill: #FFEB3B;
 }
 
 /* favs menu icon */
@@ -212,8 +211,13 @@ a:focus #favs {
   fill: #D4D1CC;
 }
 a:focus #about {
-  fill: #FFA500;
+  fill: #FFEB3B;
 }
+
+/* .menu p {
+  font-size: 8px;
+  color: white;
+} */
 
 /* fab button */
 .float {
@@ -244,12 +248,12 @@ a:focus #about {
   fill: #D4D1CC;
 }
 
-.up-bckd {
+/* .up-bckd {
   margin: 0;
   padding: 0;
   width: 100%;
   background-color: rgb(51, 51, 51);
-}
+} */
 
 #User-profile {
   fill: #D4D1CC;
