@@ -2,45 +2,52 @@
 
 <h1>Edit Event</h1>
 
-
-<form action="/events/edit/{{id}}" method="POST">
-    <div>
-        <label for="name" >Event Name</label>
-        <input type="text" id="name" name="name" value="{{name}}">
-    </div>
-    <div>
+<form action='/events/edit/{{id}}' method='POST'>
+  <div>
+    <label for='name'>Event Name</label>
+    <input type='text' id='name' name='name' value='{{name}}' />
+  </div>
+  {{!-- <div>
         <label for="image">Image</label>
         <input type="text" id="image" name="image" value="{{image}}">
 
-        {{!-- <input type="file" id="image" name="image" > --}}
-    <div>
-    <div>
-        <label for="location">Location</label>
-        <input type="text" id="location" name="location" value="{{location}}" >
-    </div>
-    
-        <label for="date">Date</label>
-        <input type="datetime-local" id="date" name="date" value="{{date}}">
-    <div>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" value="{{price}}">
-    </div>
-    <div>
-        <label for="category">Category</label>
-        <select name="category" id="category">
-            <option value="{{category}}">{{category}}</option>
-            <option value="Sport">Sport</option>
-            <option value="Music">Music</option>
-            <option value="Cinema">Cinema</option>
-            <option value="Outdoors">Outdoors</option>
-            <option value="Learning">Learning</option>
-        </select>
-    </div>
+        <input type="file" id="image" name="image" > 
+    <div> --}}
+  <div>
+    <label for='location'>Location</label>
+    <input type='text' id='location' name='location' value='{{location}}' />
+  </div>
 
-    <div>
-        <label for="description">Description</label>
-        <textarea type="text" rows="4" cols="40" id="description" name="description" value="{{description}}" placeholder="{{description}}"></textarea>
-    </div>
-        <button type="submit"> Submit </button>
+  <label for='date'>Date</label>
+  <input type='datetime-local' id='date' name='date' value='{{date}}' />
+  <div>
+    <label for='price'>Price</label>
+    <input type='text' id='price' name='price' value='{{price}}' />
+  </div>
+  <div>
+    <label for='category'>Category</label>
+    <select name='category' id='category'>
+      <option value='{{category}}'>{{category}}</option>
+      <option value='Sport'>Sport</option>
+      <option value='Music'>Music</option>
+      <option value='Cinema'>Cinema</option>
+      <option value='Outdoors'>Outdoors</option>
+      <option value='Learning'>Learning</option>
+    </select>
+  </div>
+
+  <div>
+    <label for='description'>Description</label>
+    <textarea
+      type='text'
+      rows='4'
+      cols='40'
+      id='description'
+      name='description'
+      value='{{description}}'
+      placeholder='{{description}}'
+    ></textarea>
+  </div>
+  <button type='submit'> Submit </button>
 
 </form>
