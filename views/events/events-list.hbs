@@ -12,7 +12,22 @@
   {{#each event}}
     <div class="event-card">
       <h3>{{this.name}} </h3>
-      {{!-- <p>: {{this.image}}</p> --}}
+          {{!-- {{Dynamic images}} --}}
+    {{#ifvalue this.category value='Music'}}
+      <p><img class='event-img' src='/images/Music.jpeg' /></p>
+    {{/ifvalue}}
+    {{#ifvalue this.category value='Sport'}}
+      <p><img class='event-img' src='/images/Sport.jpg' /></p>
+    {{/ifvalue}}
+    {{#ifvalue this.category value='Cinema'}}
+      <p><img class='event-img' src='/images/Cinema.jpeg' /></p>
+    {{/ifvalue}}
+    {{#ifvalue this.category value='Outdoors'}}
+      <p><img class='event-img' src='/images/Outdoors.jpeg' /></p>
+    {{/ifvalue}}
+    {{#ifvalue this.category value='Learning'}}
+      <p><img class='event-img' src='/images/Learning.jpeg' /></p>
+    {{/ifvalue}}
       <p>Location: {{this.location}}</p>
       <p>Date: {{this.date}} </p>
       <p>Price: {{this.price}} €</p>
