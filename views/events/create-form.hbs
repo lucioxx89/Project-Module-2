@@ -1,49 +1,46 @@
 <a href='/events'><img src='/images/backArrow.png' /></a>
-{{!-- <a href='/events'> Back to Event List </a> --}}
+{{! <a href='/events'> Back to Event List </a> }}
 
 <h2>Create a new event</h2>
 
-<form action="/events/create" method="POST">
-    <div>
-        <label for="name" >Event Name</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
+<form action='/events/create' method='POST'>
+  <div>
+    <label for='name'>Event Name</label>
+    <input type='text' id='name' name='name' />
+  </div>
+  {{! <div>
         <label for="image">Image</label>
         <input type="text" id="image" name="image" >
 
-        {{!-- <input type="file" id="image" name="image" > --}}
-    <div>
-    <div>
-        <label for="location">Location</label>
-        <input type="text" id="location" name="location" >
-    </div>
-    
-        <label for="date">Date</label>
-        <input type="datetime-local" id="date" name="date" >
-    <div>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" >
-    </div>
-    <div>
-        <label for="category">Category</label>
-        <select name="category" id="category">
-            <option value=" ">--</option>
-            <option value="Sport">Sport</option>
-            <option value="Music">Music</option>
-            <option value="Cinema">Cinema</option>
-            <option value="Outdoors">Outdoors</option>
-            <option value="Learning">Learning</option>
-        </select>
-    </div>
+        
+    <div> }}
+  <div>
+    <label for='location'>Location</label>
+    <input type='text' id='location' name='location' />
+  </div>
 
-    <div>
-        <label for="description">Description</label>
-        <textarea type="text" rows="4" cols="40" id="description" name="description"></textarea>
-    </div>
-        <button type="submit"> Submit </button>
+  <label for='date'>Date</label>
+  <input type='datetime-local' id='date' name='date' />
+  <div>
+    <label for='price'>Price</label>
+    <input type='text' id='price' name='price' />
+  </div>
+  <div>
+    <label for='category'>Category</label>
+    <select name='category' id='category'>
+      <option value=' '>--</option>
+      <option value='Sport'>Sport</option>
+      <option value='Music'>Music</option>
+      <option value='Cinema'>Cinema</option>
+      <option value='Outdoors'>Outdoors</option>
+      <option value='Learning'>Learning</option>
+    </select>
+  </div>
+
+  <div>
+    <label for='description'>Description</label>
+    <textarea type='text' rows='4' cols='40' id='description' name='description'></textarea>
+  </div>
+  <button type='submit'> Submit </button>
 
 </form>
-
-
-
