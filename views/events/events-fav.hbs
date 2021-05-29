@@ -1,7 +1,7 @@
 {{!-- <a href='/events'><img src='/images/backArrow.png' /></a> --}}
 
 {{!-- arrow code starts here --}}
-<div class="arrow-lft-container">
+{{!-- <div class="arrow-lft-container">
   <a href="/events">
     <?xml version="1.0" encoding="iso-8859-1"?>
     <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -17,7 +17,7 @@
       </g>
     </svg>
   </a>
-</div>
+</div> --}}
 {{!-- end arrow code --}}
 
 
@@ -25,10 +25,18 @@
 <div class="event-card">
   {{#each event.myEvents}}
     <div>
+      {{#ifvalue this.category value='Music'}}
+      {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img
+        class="event-img" src="images/music.png" / />}} --}}
+      {{! <p>Music image 📻</p> }}
+      <img class='event-img' src='/images/categories/music.jpg' />
+      {{/ifvalue}}
+      <div class="event-data">
       <h3>{{this.name}} </h3>
       <p>Location: {{this.location}}</p>
       <p>Date: {{this.date}} </p>
       <p>Price: {{this.price}} €</p>
+      </div>
     </div>
   {{/each}}
 </div>

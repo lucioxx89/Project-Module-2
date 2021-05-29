@@ -1,38 +1,34 @@
-
-
-
-  {{!-- <a href='/users/myevents'>My Events</a>
-  <a href='/events'>Events list</a>
-  <a href='/users/profile'>Profile</a>
-  --}}
-
 <h2>Events</h2>
 {{!-- <button class='primary-button'><a href='/events/create'>Add new event</a></button> --}}
 
   {{#each event}}
-    <div class="event-card">
-      <h3>{{this.name}} </h3>
+  <div class="event-card">
+    
+      
           {{!-- {{Dynamic images}} --}}
     {{#ifvalue this.category value='Music'}}
-      <p><img class='event-img' src='/images/Music.jpeg' /></p>
+      <img class='event-img' src='/images/categories/music.jpg' />
     {{/ifvalue}}
     {{#ifvalue this.category value='Sport'}}
-      <p><img class='event-img' src='/images/Sport.jpg' /></p>
+      <img class='event-img' src='/images/categories/sport.jpg' />
     {{/ifvalue}}
     {{#ifvalue this.category value='Cinema'}}
-      <p><img class='event-img' src='/images/Cinema.jpeg' /></p>
+      <img class='event-img' src='/images/categories/cinema.jpg' />
     {{/ifvalue}}
     {{#ifvalue this.category value='Outdoors'}}
-      <p><img class='event-img' src='/images/Outdoors.jpeg' /></p>
+      <img class='event-img' src='/images/categories/outdoors.jpg' />
     {{/ifvalue}}
     {{#ifvalue this.category value='Learning'}}
-      <p><img class='event-img' src='/images/Learning.jpeg' /></p>
+      <img class='event-img' src='/images/categories/learning.jpg' />
     {{/ifvalue}}
+      <div class="event-data">
+      <h3>{{this.name}} </h3>
       <p>Location: {{this.location}}</p>
       <p>Date: {{this.date}} </p>
       <p>Price: {{this.price}} €</p>
       {{!-- <p>Category: {{this.category}} </p> --}}
       {{!-- <p>Description: {{this.description}} </p> --}}
+      </div>
       
       {{!-- baseline --}}
       <div class="line">
@@ -63,9 +59,9 @@
         </form>
         </div>
       {{!-- end lin class --}}
- 
-  {{/each}}
   </div>
+  {{/each}}
+  
 
 {{> fabButton}}
 {{> appbarBottom}}

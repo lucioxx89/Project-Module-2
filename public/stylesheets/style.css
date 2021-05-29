@@ -1,6 +1,4 @@
 
-
-
 body {
   font: 200 16px/1.5 “Helvetica Neue”,
   Helvetica,
@@ -13,6 +11,14 @@ body {
   align-items: center;
   padding: 15px;
   font: 14px ‘Lucida Grande’, Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+p {
+  font-size: 18px;
 }
 /* a {
   color:#d4d1cc;
@@ -30,7 +36,15 @@ body {
   align-items: center;
 }
 .logo img {
-  width: 40vw;
+  width: 20vw;
+}
+
+.logotipo {
+  font-family: 'Nunito',
+  sans-serif;
+  font-size: 40px;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 .primary-button {
   text-align: center;
@@ -157,8 +171,9 @@ ul li {
 } */
 
 .event-img {
-  width: 250px;
-  height: 200px;
+  width: 100%;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 /* appBar bottom */
@@ -169,7 +184,7 @@ ul li {
   bottom: 0;
   width: 100%;
 }
-.menu {
+#menu {
   padding: 0;
   margin: 10;
   display: flex;
@@ -177,7 +192,7 @@ ul li {
   justify-content: space-around;
   list-style-type: none;
 }
-.menu li {
+#menu li {
   width: 25px;
 }
 
@@ -206,9 +221,10 @@ a:focus #coupon {
   fill: #FFEB3B;
 }
 
-/* favs menu icon */
+/* profile menu icon */
 #about {
   fill: #D4D1CC;
+  
 }
 a:focus #about {
   fill: #FFEB3B;
@@ -292,10 +308,41 @@ a:focus #about {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-bottom: 20px;
 }
 
 .event-card {
   background: rgb(43, 43, 43);
   width: 100%;
-  padding: 10px;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
+
+.select-category {
+  width: 100%;
+  padding: 10px 0;
+}
+
+
+.event-data {
+  padding: 0 15px;
+  line-height: 24px;
+}
+
+.payoff {
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+/* event clic */
+
+/* .btn {
+  fill: greenyellow;
+  stroke: green;
+}
+
+.active {
+  fill: red;
+  stroke: red;
+} */
