@@ -71,6 +71,19 @@ router.post('/edit/:id', (req, res, next) => {
     });
 });
 
+// event search page
+router.get('/search', (req, res, next) => {
+  Event.find({})
+    .then(createdEvents => {
+      res.render('events/event-search', { event: createdEvents });
+    })
+    .catch(error => {
+      next(error);
+    });
+  // res.render('events/events-list');
+});
+
+
 // To see Event details
 router.get('/details/:id', (req, res, next) => {
   const { id } = req.params;

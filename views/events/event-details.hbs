@@ -34,27 +34,28 @@
     {{#ifvalue showEventDetails.category value='Music'}}
       {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img class="event-img" src="images/music.png"//>}} --}}
       {{! <p>Music image 📻</p> }}
-      <p><img class='event-img' src='/images/Music.jpeg' /></p>
+      <img class='event-img' src='/images/categories/music.jpg' />
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Sport'}}
-      <p><img class='event-img' src='/images/Sport.jpg' /></p>
+      <img class='event-img' src='/images/categories/sport.jpg' />
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Cinema'}}
-      <p><img class='event-img' src='/images/Cinema.jpeg' /></p>
+      <img class='event-img' src='/images/categories/cinema.jpg' />
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Outdoors'}}
-      <p><img class='event-img' src='/images/Outdoors.jpeg' /></p>
+      <img class='event-img' src='/images/categories/outdoors.jpg' />
     {{/ifvalue}}
     {{#ifvalue showEventDetails.category value='Learning'}}
-      <p><img class='event-img' src='/images/Learning.jpeg' /></p>
+      <img class='event-img' src='/images/categories/learning.jpg' />
     {{/ifvalue}}
     {{!-- {{End of dynamic images}} --}}
-
+    <div class="event-data">
     <p>Location: {{showEventDetails.location}}</p>
     <p>Date: {{showEventDetails.date}} </p>
     <p>Price: {{showEventDetails.price}} $</p>
     <p>Category: {{showEventDetails.category}} </p>
     <p>Description: {{showEventDetails.description}} </p>
+    </div>
 
     <form action='/events/join/{{showEventDetails._id}}' method='POST'>
       <button class="primary-button" type='submit'> Join event </button>
@@ -63,3 +64,10 @@
   </div>
 
 </div>
+
+<br>
+<br>
+<br>
+
+
+{{> appbarBottom}}

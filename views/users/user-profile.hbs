@@ -34,12 +34,13 @@
 
 {{#if user}}
   <h2>Welcome, {{user.firstName}}!</h2>
-  <p>This is your profile page</p>
+  <p class= "payoff">There are new events for you</p>
   {{! <button>
     <a href='/auth/profile'>Reload the page</a>
   </button> }}
   <br>
   <button class='primary-button'><a href='/users/profile/edit'>Edit Profile</a></button>
+  <br>
   <br>
   <form action='/auth/logout' method='POST'>
       <button class='secondary-button'>Logout</button>
