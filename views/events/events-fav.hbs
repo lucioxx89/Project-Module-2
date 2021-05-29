@@ -22,14 +22,27 @@
 
 
 <h2>My favorite Events</h2>
-<div class="event-card">
+
   {{#each event.myEvents}}
+  <div class="event-card">
     <div>
       {{#ifvalue this.category value='Music'}}
       {{!-- {{En cada uno de estos tenéis que llamar a la imagen que queráis de la carpeta public/images <img
         class="event-img" src="images/music.png" / />}} --}}
       {{! <p>Music image 📻</p> }}
       <img class='event-img' src='/images/categories/music.jpg' />
+      {{/ifvalue}}
+      {{#ifvalue this.category value='Sport'}}
+      <img class='event-img' src='/images/categories/sport.jpg' />
+      {{/ifvalue}}
+      {{#ifvalue this.category value='Cinema'}}
+      <img class='event-img' src='/images/categories/cinema.jpg' />
+      {{/ifvalue}}
+      {{#ifvalue this.category value='Outdoors'}}
+      <img class='event-img' src='/images/categories/outdoors.jpg' />
+      {{/ifvalue}}
+      {{#ifvalue this.category value='Learning'}}
+      <img class='event-img' src='/images/categories/learning.jpg' />
       {{/ifvalue}}
       <div class="event-data">
       <h3>{{this.name}} </h3>
@@ -38,7 +51,8 @@
       <p>Price: {{this.price}} €</p>
       </div>
     </div>
+    </div>
   {{/each}}
-</div>
+
 
 {{> appbarBottom}}
