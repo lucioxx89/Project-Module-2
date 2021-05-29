@@ -123,4 +123,9 @@ router.post('/join/:id', (req, res, next) => {
     });
 });
 
+//event search
+router.get('/search', (req, res, next) => {
+  res.render('events/events-search');
+});
+
 module.exports = router;
