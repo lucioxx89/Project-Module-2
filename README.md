@@ -2,12 +2,12 @@
 
 # Your project's name
 
-...
+BeeThere
 ​
 
 ## Description
 
-​,,,,is a social networking app which purpose is to help people build social communities and pursuit their interests.Users, once logged in,can create events, classes and workshops as well as check and join other events.
+​BeeThere is a social networking app which purpose is to help people build social communities and pursuit their interests.Users, once logged in,can create events, classes and workshops as well as check and join other events.
 
 Short description of your app's purpose.
 ​
